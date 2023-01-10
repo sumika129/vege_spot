@@ -14,10 +14,11 @@
 <実際に購入して食べた感想を投稿する時、地元の人で地域の特産を知ってほしい時、旅行に来た際にどんな場所があるか検索する時>
 
 ## 設計書
-<...>
+< ER図: https://drive.google.com/file/d/14edJtqQdwxRPEb5hstKIaOzbEXt7-3C-/view?usp=sharing
+　テーブル定義書：https://docs.google.com/spreadsheets/d/1n7dFWxyIIlC0zdkOeHkF0sl0b0Vhh2UPQPNnLFFS4KA/edit?usp=sharing>
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：macOS Monterey
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
