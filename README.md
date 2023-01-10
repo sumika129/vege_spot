@@ -15,7 +15,8 @@
 
 ## 設計書
 < ER図: https://drive.google.com/file/d/14edJtqQdwxRPEb5hstKIaOzbEXt7-3C-/view?usp=sharing
-　テーブル定義書：https://docs.google.com/spreadsheets/d/1n7dFWxyIIlC0zdkOeHkF0sl0b0Vhh2UPQPNnLFFS4KA/edit?usp=sharing>
+　テーブル定義書：https://docs.google.com/spreadsheets/d/1n7dFWxyIIlC0zdkOeHkF0sl0b0Vhh2UPQPNnLFFS4KA/edit?usp=sharing
+　実装機能リスト：https://docs.google.com/spreadsheets/d/1ZEERcds-YWYSLh3Sq4p_bPbUBL1xkzKBEN4ipZuGqI4/edit?usp=sharing>
 
 ## 開発環境
 - OS：macOS Monterey
