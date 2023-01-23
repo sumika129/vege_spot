@@ -1,7 +1,7 @@
 <h1>登録情報の編集</h1>
 
 <%= form_with model: [:public,@user] do |f| %>
-  <body>
+  <table>
     <tr>
       <th>ユーザー名（ニックネーム）</th>
       <td><%= f.text_field :name %></td>
@@ -10,6 +10,6 @@
       <th>メールアドレス</th>
       <td><%= f.text_field :email %></td>
     </tr>
-    <%= f.submit "変更を保存" %>
-  </body>
+    <td><%= f.submit "変更を保存する", class:"btn btn-success" %></td>
+  </table>
 <% end %>
