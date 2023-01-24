@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'categories/index'
+    get 'categories/edit'
+  end
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
