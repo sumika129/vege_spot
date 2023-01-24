@@ -11,5 +11,6 @@
       <td><%= f.text_field :email %></td>
     </tr>
     <td><%= f.submit "変更を保存する", class:"btn btn-success" %></td>
+    <td><%= link_to "退会する", public_unsubscribe_path, class:"btn btn-sm btn-danger" %></td>
   </table>
 <% end %>
