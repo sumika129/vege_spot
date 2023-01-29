@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update]
     get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
 
   namespace :admin do
