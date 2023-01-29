@@ -1,0 +1,22 @@
+<h1>地域の新規登録</h1>
+<%= form_with model: [:admin,@area] do |f| %>
+  <h2>地域名</h2>
+  <%= f.text_field :name %>
+  <%= f.submit '新規登録', class:"btn btn-success" %>
+<% end %>
+
+<h2>地域名一覧</h2>
+<table>
+  <thead>
+    <th>地域名</th>
+    <th></th>
+  </thead>
+  <%= @areas.each do |area| %>
+  <tbody>
+    <tr>
+      <td><%= area.name %></td>
+      <td><%= link_to "編集", edit_admin_area_path(area), class:"btn btn-sm btn-success" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

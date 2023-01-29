@@ -1,1 +1,22 @@
 <h1>カテゴリ新規登録</h1>
+<%= form_with model: [:admin,@category] do |f| %>
+  <h2>カテゴリ名</h2>
+  <%= f.text_field :name %>
+  <%= f.submit '新規登録', class:"btn btn-success" %>
+<% end %>
+
+<h2>カテゴリ一覧</h2>
+<table>
+  <thead>
+    <th>カテゴリ名</th>
+    <th></th>
+  </thead>
+  <%= @categories.each do |category| %>
+  <tbody>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= link_to "編集", edit_admin_category_path(category), class:"btn btn-sm btn-success" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

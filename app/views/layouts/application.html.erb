@@ -25,6 +25,12 @@
             <li>
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
             </li>
+            <li>
+              <%= link_to "カテゴリ", admin_categories_path %>
+            </li>
+            <li>
+              <%= link_to "地域", admin_areas_path %>
+            </li>
           <% elsif user_signed_in? %>
             <li>
               <%= link_to "マイページ", public_user_path(current_user) %>
