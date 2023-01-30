@@ -1,2 +1,21 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<h1>投稿詳細</h1>
+  <table>
+    <tr>
+      <th>店名</th>
+      <td><%= @post.shop %></td>
+    </tr>
+    <tr>
+      <th>地域</th>
+      <td><%= @area.name %></td>
+    </tr>
+    <tr>
+      <th>カテゴリ</th>
+      <td><%= @category.name %></td>
+    </tr>
+    <tr>
+      <th>買った商品</th>
+      <td><%= @post.item %></td>
+    </tr>
+  </table><br>
+  <%= @post.impression %>
+
