@@ -5,15 +5,16 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
-      redirect_to public_post_path(@post.id)
+      redirect_to public_user_path(current_user)
     else
-      render:show
+      render:index
     end
   end
 
   def index
-    @post = Post.find(params[:id])
+    @post = Post.all
   end
 
   def show
