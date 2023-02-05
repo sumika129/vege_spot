@@ -1,6 +1,10 @@
 <h1>投稿詳細</h1>
   <table>
     <tr>
+      <th>ユーザー名</th>
+      <td><%= @post.user.name %></td>
+    </tr>
+    <tr>
       <th>店名</th>
       <td><%= @post.shop %></td>
     </tr>
@@ -16,22 +20,28 @@
       <th>買った商品</th>
       <td><%= @post.item %></td>
     </tr>
-  </table><br>
-  <%= @post.impression %>
+    <tr>
+      <th>感想</th>
+      <td><%= @post.impression %></td>
+    </tr>
+  </table>
+
 
   <div>
-    <p>コメント一覧</p>
+    <h4>コメント一覧</h4><p>コメント件数：<%= @post.comments.count %>件</p>
     <% @post.comments.each do |comment| %>
       <%= comment.user.name %>
       <%= comment.created_at.strftime('%Y/%m/%d') %>
-      <%= comment.comment %>
+      <% if comment.user == current_user %>
+        <%= link_to "削除", public_post_comment_path(comment.comment), method: :delete %>
+      <% end %>
     <% end %>
   </div>
   <div>
-    <%= form_with model: [@post, @comment] do |f| %>
-      <%= f.text_area :comment %>
-      <%= f.submit "コメントする" %>
-    <% end %>
+    <%#= form_with model: [@post, @comment] do |f| %>
+      <%#= f.text_area :comment %>
+      <%#= f.submit "コメントを送信" %>
+    <%# end %>
   </div>
 
 <br>
