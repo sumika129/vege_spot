@@ -21,6 +21,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @area = @post.area
     @category = @post.category
+    @comment = Comment.new
   end
 
   def edit
