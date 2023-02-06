@@ -25,23 +25,37 @@
       <td><%= @post.impression %></td>
     </tr>
   </table>
-
-
-  <div>
-    <h4>コメント一覧</h4><p>コメント件数：<%= @post.comments.count %>件</p>
+<br>
+  <h4>コメント一覧</h4><p>コメント件数：<%= @post.comments.count %>件</p>
+  <table>
+    <thead>
+    <tr>
+      <th>投稿日</th>
+      <th>ユーザー名</th></th>
+      <th>コメント</th>
+      <th></th>
+    </tr>
+    </thead>
     <% @post.comments.each do |comment| %>
-      <%= comment.user.name %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %>
+    <tbody>
+    <tr>
+      <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= comment.user.name %></td>
+      <td><%= comment.comment %></td>
       <% if comment.user == current_user %>
-        <%= link_to "削除", public_post_comment_path(comment.comment), method: :delete %>
+        <td><%= link_to "削除", public_post_comment_path(@post, comment), method: :delete, class:"btn btn-sm btn-danger" %></td>
       <% end %>
+    </tr>
+    </tbody>
     <% end %>
-  </div>
+  </table>
+  <br>
   <div>
-    <%#= form_with model: [@post, @comment] do |f| %>
-      <%#= f.text_area :comment %>
-      <%#= f.submit "コメントを送信" %>
-    <%# end %>
+    <h4>この投稿にコメントする</h4>
+    <%= form_with model: [:public, @post, @comment] do |f| %>
+      <%= f.text_area :comment %>
+      <%= f.submit "コメントを送信" %>
+    <% end %>
   </div>
 
 <br>
