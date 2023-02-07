@@ -17,7 +17,7 @@
 
   <%= link_to "新規投稿", new_public_post_path, class:"btn btn-sm btn-primary" %>
   <table>
-    <h4>さんの投稿一覧</h4>
+    <h4><%= @user.name %>さんの投稿一覧</h4>
     <% @post.each do |post| %>
       <tr>
         <td></td>
@@ -27,5 +27,7 @@
       </tr>
     <% end %>
   </table>
+  
+  <p><%= link_to"いいねした投稿を見る", likes_public_user_path(@user) %></p>
 
 

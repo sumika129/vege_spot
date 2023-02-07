@@ -10,7 +10,7 @@
   <% @post.each do |post| %>
   <tbody>
     <tr>
-      <td><%= link_to post.created_at.strftime('%Y/%m/%d %H:%M'), public_post_path(post) %></td>
+      <td><%= link_to post.created_at.strftime('%Y/%m/%d'), public_post_path(post) %></td>
       <td><%= post.user.name %></td>
       <td><%= post.shop %></td>
     </tr>

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   namespace :public do
     get 'home/about'=>'homes#about',as:'about'
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        get :likes
+      end
+    end
     get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]do

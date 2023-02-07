@@ -1,0 +1,11 @@
+<h2>いいね一覧</h2>
+
+<table>
+<% @like_post.each do |post| %>
+  <tr>
+    <td><%= link_to post.created_at.strftime('%Y/%m/%d'), public_post_path(post) %></td>
+    <td><%= post.user.name %></td>
+    <td><%= post.shop %></td>
+  </tr>
+<% end %>
+</table>
