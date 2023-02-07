@@ -1,20 +1,49 @@
-<h1>投稿一覧</h1>
+<h4>キーワード検索</h4>
+<div class="search-form">
+  <%= form_with url: public_search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<br>
+<h4>地域検索</h4>
+<div class="search-form">
+  <%= form_with url: public_area_search_path, method: :get, local: true do |f| %>
+    <%= f.collection_select :keyword, Area.all, :id, :name,  selected: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<br>
+<h4>カテゴリ検索</h4>
+<div class="search-form">
+  <%= form_with url: public_category_search_path, method: :get, local: true do |f| %>
+    <%= f.collection_select :keyword, Category.all, :id, :name,  selected: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<br>
+<h2>投稿一覧</h2>
+<p><%= link_to "全ての投稿を表示", public_posts_path %></p>
 <table>
   <thead>
     <tr>
       <th>投稿日</th>
       <th>投稿者名</th>
       <th>店名</th>
+      
     </tr>
   </thead>
-  <% @post.each do |post| %>
+  <% @posts.each do |post| %>
   <tbody>
     <tr>
       <td><%= link_to post.created_at.strftime('%Y/%m/%d'), public_post_path(post) %></td>
       <td><%= post.user.name %></td>
       <td><%= post.shop %></td>
+      
     </tr>
   </tbody>
   <% end %>
 </table>
+
+
 

@@ -12,4 +12,17 @@ class Post < ApplicationRecord
     likes.exists?(user_id: user.id)
   end
 
+  def self.search(keyword)
+    where(["item like? OR impression like? OR shop like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+  end
+
+
+  def self.area_search(keyword)
+    includes(:area).where(areas: {id: keyword})
+  end
+
+  def self.category_search(keyword)
+    includes(:category).where(categories: {id: keyword})
+  end
+
 end

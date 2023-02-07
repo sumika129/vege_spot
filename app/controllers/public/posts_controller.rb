@@ -14,7 +14,25 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    @posts = Post.all
+  end
+
+  def search
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
+  def area_search
+    @posts = Post.area_search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
+  def category_search
+    @posts = Post.category_search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
   end
 
   def show
