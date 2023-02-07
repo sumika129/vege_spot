@@ -26,18 +26,34 @@
     </tr>
   </table>
 <br>
-  <h4>コメント一覧</h4><p>コメント件数：<%= @post.comments.count %>件</p>
-  <table>
-    <thead>
+
+<% if @post.liked_by?(current_user) %>
+    <p>
+      <%= link_to public_post_likes_path(@post), method: :delete do %>
+        ♥<%= @post.likes.count %> 
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to public_post_likes_path(@post), method: :post do %>
+        ♡<%= @post.likes.count %> 
+      <% end %>
+    </p>
+  <% end %>
+
+<br>
+<h4>コメント一覧</h4><p>コメント件数：<%= @post.comments.count %>件</p>
+<table>
+  <thead>
     <tr>
       <th>投稿日</th>
       <th>ユーザー名</th></th>
       <th>コメント</th>
       <th></th>
     </tr>
-    </thead>
+  </thead>
     <% @post.comments.each do |comment| %>
-    <tbody>
+  <tbody>
     <tr>
       <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
       <td><%= comment.user.name %></td>
@@ -46,17 +62,17 @@
         <td><%= link_to "削除", public_post_comment_path(@post, comment), method: :delete, class:"btn btn-sm btn-danger" %></td>
       <% end %>
     </tr>
-    </tbody>
+  </tbody>
     <% end %>
-  </table>
-  <br>
-  <div>
-    <h4>この投稿にコメントする</h4>
+</table>
+<br>
+<div>
+  <h4>この投稿にコメントする</h4>
     <%= form_with model: [:public, @post, @comment] do |f| %>
       <%= f.text_area :comment %>
       <%= f.submit "コメントを送信" %>
     <% end %>
-  </div>
+</div>
 
 <br>
 <%= link_to "投稿一覧に戻る", public_posts_path %>
