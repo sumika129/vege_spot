@@ -1,0 +1,26 @@
+<h2>ユーザー一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ユーザー名</th>
+      <th>アドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <% @user.each do |user| %>
+  <tbody>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= link_to user.name, admin_user_path(user.id) %></td>
+      <td><%= user.email %></td>
+      <% if user.is_deleted %>
+      <td>退会</td>
+      <% else %>
+      <td>有効</td>
+      <% end %>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

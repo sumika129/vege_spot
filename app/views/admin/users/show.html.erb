@@ -1,0 +1,26 @@
+<h2><%= @user.name %>さんのユーザー情報</h2>
+
+<table>
+  <tr>
+    <th>ユーザー名</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <th>ステータス</th>
+    <% if @user.is_deleted %>
+    <td>退会</td>
+    <% else %>
+    <td>有効</td>
+    <% end %>
+  </tr>
+  <tr>
+    <td><%= link_to "編集する", edit_admin_user_path(@user), class:"btn btn-sm btn-success" %></td>
+  </tr>
+</table>
+<br>
+<h4><%= @user.name %>さんの投稿</h4>
+
