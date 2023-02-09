@@ -1,0 +1,21 @@
+<h2>コメント管理</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ユーザーID</th>
+      <th>ユーザー名</th>
+      <th>コメント</th>
+      <th></th>
+    </tr>
+  </thead>
+  <%= @comment.each do |comment| %>
+  <tbody>
+    <tr>
+      <td><%= comment.user.id %></td>
+      <td><%= comment.user.name %></td>
+      <td><%= comment.comment %></td>
+      <td><%= link_to "削除", admin_comment_path(comment), method: :delete, class:"btn btn-sm btn-danger", "data-confirm" => "本当に消しますか?" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
