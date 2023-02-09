@@ -23,4 +23,19 @@
 </table>
 <br>
 <h4><%= @user.name %>さんの投稿</h4>
-
+<table>
+  <thead>
+    <tr>
+      <th>投稿日</th>
+      <th>店名</th>
+    </tr>
+  </thead>
+  <% @post.each do |post| %>
+  <tbody>
+    <tr>
+      <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= post.shop %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
