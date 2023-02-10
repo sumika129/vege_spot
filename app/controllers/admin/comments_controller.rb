@@ -1,6 +1,6 @@
 class Admin::CommentsController < ApplicationController
   def index
-    @comment = Comment.all
+    @comment = Comment.page(params[:page])
   end
 
   def destroy
