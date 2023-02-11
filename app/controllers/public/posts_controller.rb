@@ -14,23 +14,26 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
   end
 
   def search
     @posts = Post.search(params[:keyword])
+    @posts = @posts.page(params[:page]).per(10)
     @keyword = params[:keyword]
     render "index"
   end
 
   def area_search
     @posts = Post.area_search(params[:keyword])
+    @posts = @posts.page(params[:page]).per(10)
     @keyword = params[:keyword]
     render "index"
   end
 
   def category_search
     @posts = Post.category_search(params[:keyword])
+    @posts = @posts.page(params[:page]).per(10)
     @keyword = params[:keyword]
     render "index"
   end
@@ -40,6 +43,7 @@ class Public::PostsController < ApplicationController
     @area = @post.area
     @category = @post.category
     @comment = Comment.new
+    #@comment = @post.comment.page(params[:page])
   end
 
   def edit
