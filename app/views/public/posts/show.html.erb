@@ -1,6 +1,10 @@
 <h1>投稿詳細</h1>
   <table>
     <tr>
+      <th></th>
+      <td><%= image_tag @post.get_image %></td>
+    </tr>
+    <tr>
       <th>ユーザー名</th>
       <td><%= @post.user.name %></td>
     </tr>
