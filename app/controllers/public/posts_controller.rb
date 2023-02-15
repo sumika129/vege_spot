@@ -46,6 +46,12 @@ class Public::PostsController < ApplicationController
     #@comment = @post.comment.page(params[:page])
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to public_user_path(current_user)
+  end
+
   def edit
     @post = Post.find(params[:id])
   end
@@ -59,8 +65,6 @@ class Public::PostsController < ApplicationController
     end
   end
 
-  def destroy
-  end
 
   private
   def post_params
