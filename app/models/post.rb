@@ -7,6 +7,11 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  
+  validates :shop, presence: true
+  validates :item, presence: true
+  validates :impression, presence: true
+
 
   def get_image(width, height)
     unless image.attached?
