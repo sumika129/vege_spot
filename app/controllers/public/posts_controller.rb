@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to public_user_path(current_user)
     else
-      render:index
+      render:new
     end
   end
 

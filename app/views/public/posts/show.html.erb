@@ -1,4 +1,8 @@
-<h1>投稿詳細</h1>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-6">
+
+<br>
   <table>
     <tr>
       <th></th>
@@ -44,7 +48,14 @@
       <% end %>
     </p>
   <% end %>
+  <br>
+  <%= link_to "投稿一覧に戻る", public_posts_path %>
+  <% if @post.user == current_user %>
+    <%= link_to "投稿を削除する", public_post_path(@post), method: :delete, class:"btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか?" %>
+  <% end %>
+    </div>
 
+    <div class="col-md-5 offset-md-1">
 <br>
 <h4>コメント一覧</h4><p>コメント件数：<%= @post.comments.count %>件</p>
 <table>
@@ -79,8 +90,6 @@
     <% end %>
 </div>
 
-<br>
-<%= link_to "投稿一覧に戻る", public_posts_path %>
-<% if @post.user == current_user %>
-  <%= link_to "投稿を削除する", public_post_path(@post), method: :delete, class:"btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか?" %>
-<% end %>
+    </div>
+  </div>
+</div>
