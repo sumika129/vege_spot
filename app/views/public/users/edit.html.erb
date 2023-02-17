@@ -1,5 +1,9 @@
-<h1>登録情報の編集</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
+<h2>登録情報の編集</h2>
+<br>
 <%= form_with model: [:public,@user] do |f| %>
   <table>
     <tr>
@@ -14,3 +18,7 @@
     <td><%= link_to "退会する", public_unsubscribe_path, class:"btn btn-sm btn-danger" %></td>
   </table>
 <% end %>
+
+    </div>
+  </div>
+</div>

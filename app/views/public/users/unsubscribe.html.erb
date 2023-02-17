@@ -1,9 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 <h2>本当に退会しますか？</h2>
 
-  <h3>退会すると、会員登録情報や<br>
+  <p>退会すると、会員登録情報や<br>
       これまでの投稿履歴が閲覧できなくなります。<br>
-      退会する場合は、「退会する」をクリックしてください。</h3>
+      退会する場合は、「退会する」をクリックしてください。</p>
   <div>
     <%= link_to '退会しない', public_user_path(current_user) %>
     <%= link_to "退会する", public_withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？" %>
   </div>
+
+    </div>
+  </div>
+</div>

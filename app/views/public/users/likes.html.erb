@@ -1,13 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 <h2>いいね一覧</h2>
 
 <table>
-<% @like_post.each do |post| %>
-  <tr>
-    <td><%= link_to post.created_at.strftime('%Y/%m/%d'), public_post_path(post) %></td>
-    <td><%= post.user.name %></td>
-    <td><%= post.shop %></td>
-  </tr>
+  <thead>
+    <tr>
+      <th>投稿日</th>
+      <th>ユーザー名</th>
+      <th>店名</th>
+    </tr>
+  </thead>
+  <% @like_post.each do |post| %>
+  <tbody>
+    <tr>
+      <td><%= link_to post.created_at.strftime('%Y/%m/%d'), public_post_path(post) %></td>
+      <td><%= post.user.name %></td>
+      <td><%= post.shop %></td>
+    </tr>
+  </tbody>
 <% end %>
 </table>
 
 <%= paginate @like_post %>
+
+    </div>
+  </div>
+</div>
