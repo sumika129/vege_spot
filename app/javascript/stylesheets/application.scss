@@ -1,2 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+ .background {
+   background-image: url('../images/nouka.jpg');
+   min-height: calc(100vh - 98px);
+   background-size: cover;
+   background-position: center center;
+
+ }
