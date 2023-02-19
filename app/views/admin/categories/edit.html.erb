@@ -1,7 +1,15 @@
-<h1>カテゴリ編集</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+<h2>カテゴリ編集</h2><br>
 
 <%= form_with model: [:admin,@category] do |f| %>
   <th>カテゴリ名</th>
   <td><%= f.text_field :name %></td>
   <%= f.submit '変更を保存', class:"btn btn-success" %>
 <% end %>
+
+    </div>
+  </div>
+</div>
