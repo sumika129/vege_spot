@@ -31,6 +31,9 @@ class Public::UsersController < ApplicationController
   def withdraw
     @user = current_user
     @user.update(is_deleted: true)
+    @user.posts.destroy_all
+    @user.comments.destroy_all
+    @user.likes.destroy_all
     reset_session
     redirect_to root_path
   end
