@@ -35,19 +35,25 @@
   </table>
 <br>
 
-<% if @post.liked_by?(current_user) %>
+<% if user_signed_in? %>
+  <% if @post.liked_by?(current_user) %>
     <p>
       <%= link_to public_post_likes_path(@post), method: :delete do %>
         ♥<%= @post.likes.count %>
       <% end %>
     </p>
-    <% else %>
+  <% else %>
     <p>
       <%= link_to public_post_likes_path(@post), method: :post do %>
         ♡<%= @post.likes.count %>
       <% end %>
     </p>
   <% end %>
+<% else %>
+  <p>
+    ♥<%= @post.likes.count %>
+  </p>
+<% end %>
   <br>
   <%= link_to "投稿一覧に戻る", public_posts_path %>
   <% if @post.user == current_user %>
