@@ -89,11 +89,15 @@
 </table>
 <br>
 <div>
+  <% if user_signed_in? %>
   <h4>この投稿にコメントする</h4>
     <%= form_with model: [:public, @post, @comment] do |f| %>
       <%= f.text_area :comment %>
       <%= f.submit "コメントを送信" %>
     <% end %>
+  <% else %>
+    <p>＊コメントするためにはユーザー登録が必要です＊</p>
+  <% end %>
 </div>
 
     </div>
