@@ -7,7 +7,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to public_user_path(current_user)
+      redirect_to public_post_path(@post.id)
     else
       render:new
     end

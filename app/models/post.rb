@@ -28,7 +28,7 @@ class Post < ApplicationRecord
   end
 
   def self.search(keyword)
-    where(["item like? OR impression like? OR shop like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+    left_joins(:user).where(["item like? OR impression like? OR shop like? OR users.name like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
   end
 
 
