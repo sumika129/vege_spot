@@ -36,4 +36,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です
+- ぱくたそ: https://www.pakutaso.com/
+- designevo: https://www.designevo.com/
+- 
